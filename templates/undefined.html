@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+<h1>Calculadora de Integrales Indefinidas</h1>
+
+<form method="post" action="/undefined/calculate" id="integral-form">
+    <label for="expression">Expresión:</label>
+    <input type="text" id="expression" name="expression" required>
+
+    <label for="variable">Variable de integración:</label>
+    <input type="text" id="variable" name="variable" value="x" required>
+
+    <button type="submit">Calcular Integral</button>
+</form>
+
+<h3>Expresión:</h3>
+<div id="render-expression">$$\int \_ dx$$</div>
+
+<h3>Resultado:</h3>
+<div id="render-result">
+    {% if result %}
+        $$ {{ result }} $$
+    {% endif %}
+</div>
+{% endblock %}
+
+{% block script %}
+<script src="/static/js/toLatex.js"></script>
+<script src="/static/js/undefined.js"></script>
+
+<!-- MathJax -->
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+{% endblock %}

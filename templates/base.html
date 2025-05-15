@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="{{ url_for('static', path='img/leibniz.ico') }}">
+    <title>{% block title %}LeibnizCal{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', path='css/styles.css') }}">
+
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="/" class="logo">LeibnizCal</a>
+            <ul class="nav-links">
+                <li><a href="/">Inicio</a></li> 
+                <li><a href="/defined">Integrales definidas</a> </li>
+                <li><a href="/undefined">Integrales indefinidas</a> </li>
+                <li><a href="/history">Historial</a></li>
+            </ul>
+        </div>
+    </nav>
+
+
+    <main class="main-content">
+        {% block content %}{% endblock %}
+    </main>
+    {% block script %}{% endblock %}
+</body>
+<footer class="footer">
+    <div class="footer-container">
+        <p>&copy; 2025 LeibnizCal. Desarrollado con admiración.</p>
+        <p>Inspirado en el legado de Gottfried Wilhelm Leibniz.</p>
+    </div>
+</footer>
+</html>
