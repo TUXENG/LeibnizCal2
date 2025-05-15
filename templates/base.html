@@ -1,17 +1,29 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <title>{% block title %}LeibnizCal{% endblock %}</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
 </head>
+
 <body>
-    <nav>
-        <a href="/">Inicio</a> |
-        <a href="/defined">Integrales definidas</a> |
-        <a href="/undefined">Integrales indefinidas</a> |
-        <a href="/history">Historial</a>
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="/" class="logo">LeibnizCal</a>
+            <ul class="nav-links">
+                <li><a href="/">Inicio</a></li> 
+                <li><a href="/defined">Integrales definidas</a> </li>
+                <li><a href="/undefined">Integrales indefinidas</a> </li>
+                <li><a href="/history">Historial</a></li>
+            </ul>
+        </div>
     </nav>
-    <hr>
-    {% block content %}{% endblock %}
+
+
+    <main class="main-container">
+        {% block content %}{% endblock %}
+    </main>
+    
 </body>
 </html>
