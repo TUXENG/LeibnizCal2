@@ -1,18 +1,22 @@
-const expressionInput = document.getElementById('expression');
-const variableInput = document.getElementById('variable');
-const renderDiv = document.getElementById('render-expression');
+document.addEventListener("DOMContentLoaded", () => {
+    const expressionInput = document.getElementById("expression");
+    const varInput = document.getElementById("variable");
+    const renderDiv = document.getElementById("render-expression");
 
-function updateLatex() {
-    const expr = expressionInput.value || '\\_';
-    const variable = variableInput.value || 'x';
+    const updateLatex = async () => {
+        const raw = expressionInput.value;
+        const variable = varInput.value;
 
-    // Aplica el parser de toLatex.js
-    const parsedExpr = toLatex(expr);
+        if (!raw.trim()) return;
 
-    renderDiv.innerHTML = `$$\\int ${parsedExpr} \\, d${variable}$$`;
-    if (typeof MathJax !== 'undefined') MathJax.typesetPromise([renderDiv]);
-}
+        const latexExpr = await toLatex(raw);
+        renderDiv.innerHTML = `$$\\int ${latexExpr} \\, d${variable}$$`;
 
-expressionInput.addEventListener('input', updateLatex);
-variableInput.addEventListener('input', updateLatex);
-window.addEventListener('load', updateLatex);
+        if (window.MathJax) {
+            MathJax.typesetPromise([renderDiv]);
+        }
+    };
+
+    expressionInput.addEventListener("input", updateLatex);
+    varInput.addEventListener("input", updateLatex);
+});
