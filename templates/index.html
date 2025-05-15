@@ -1,8 +1,47 @@
 {% extends "base.html" %}
 
-{% block title %}Inicio{% endblock %}
-
 {% block content %}
-<h1>Bienvenido a LeibnizCal</h1>
-<p>Explora las herramientas de cálculo de integrales.</p>
+<section class="welcome-container">
+    <h1 class="title">Bienvenido a LeibnizCal</h1>
+
+    <div class="leibniz">
+        <img src="{{ url_for('static', path='img/leibniz.png') }}" alt="Leibniz" class="leibniz-img">
+        <h2 class="leibniz-name">Gottfried Wilhelm Leibniz </h2>
+    </div>
+    <div class="leibniz-history">
+        <p class="leibniz-p">
+            Gottfried Wilhelm Leibniz fue uno de los padres del cálculo. Su notación, como el símbolo ∫ para integrales,
+            todavía se usa hoy. Junto con Newton, revolucionó las matemáticas y sentó las bases del análisis moderno.
+        </p>
+        <p class="leibniz-p">
+            Gottfried Wilhelm Leibniz (1646–1716) fue un filósofo, matemático y lógico alemán, 
+            reconocido por su mente enciclopédica y su capacidad para combinar teoría y práctica. 
+            Independientemente de Newton, desarrolló el cálculo diferencial e integral, 
+            utilizando una notación que resultó ser mucho más intuitiva y poderosa, 
+            como el símbolo ∫ para las integrales y la notación dx para los diferenciales. 
+            Sus contribuciones no solo facilitaron el desarrollo del análisis matemático moderno, 
+            sino que también influyeron en áreas como la mecánica, la informática y la lógica formal.
+        </p>
+        <p class="leibniz-p">
+            Además de su trabajo matemático, Leibniz fue un pensador visionario. 
+            Creía que el universo funcionaba bajo principios lógicos y que todo podía reducirse a una forma de cálculo racional, 
+            anticipando ideas fundamentales de la computación siglos antes de su tiempo. Su obra filosófica, 
+            en la que defendía que vivimos en "el mejor de los mundos posibles", muestra su intento por unir ciencia, 
+            religión y lógica en un sistema coherente. Leibniz no solo dejó una huella en las matemáticas, 
+            sino que también fue un precursor clave del pensamiento moderno interdisciplinario.
+        </p>
+    </div>
+
+    <div class="about">
+        <input type="checkbox" id="about-toggle" class="about-toggle">
+        <label for="about-toggle" class="about-button">Sobre LeibnizCal</label>
+        <div class="about-content">
+            <p>
+                LeibnizCal es una aplicación para resolver integrales definidas e indefinidas de manera sencilla,
+                paso a paso. Usa el menú superior para seleccionar el tipo de cálculo que deseas realizar y consulta
+                el historial para revisar tus resultados anteriores.
+            </p>
+        </div>
+    </div>
+</section>
 {% endblock %}

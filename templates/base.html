@@ -3,8 +3,10 @@
 
 <head>
     <meta charset="UTF-8">
+    <link rel="icon" href="{{ url_for('static', path='img/leibniz.ico') }}">
     <title>{% block title %}LeibnizCal{% endblock %}</title>
-    <link rel="stylesheet" href="/static/css/styles.css">
+    <link rel="stylesheet" href="{{ url_for('static', path='css/styles.css') }}">
+
 </head>
 
 <body>
@@ -21,9 +23,15 @@
     </nav>
 
 
-    <main class="main-container">
+    <main class="main-content">
         {% block content %}{% endblock %}
     </main>
-    
+    {% block script %}{% endblock %}
 </body>
+<footer class="footer">
+    <div class="footer-container">
+        <p>&copy; 2025 LeibnizCal. Desarrollado con admiración.</p>
+        <p>Inspirado en el legado de Gottfried Wilhelm Leibniz.</p>
+    </div>
+</footer>
 </html>
