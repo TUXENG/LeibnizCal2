@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}LeibnizCal{% endblock %}</title>
+</head>
+<body>
+    <nav>
+        <a href="/">Inicio</a> |
+        <a href="/defined">Integrales definidas</a> |
+        <a href="/undefined">Integrales indefinidas</a> |
+        <a href="/history">Historial</a>
+    </nav>
+    <hr>
+    {% block content %}{% endblock %}
+</body>
+</html>
