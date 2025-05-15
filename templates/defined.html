@@ -1,8 +1,42 @@
 {% extends "base.html" %}
 
-{% block title %}Definidas{% endblock %}
-
 {% block content %}
-<h1>Integrales definidas</h1>
-<p>Esta sección te permite calcular integrales definidas.</p>
+<h1>Calculadora de Integrales Definidas</h1>
+
+<form method="post" action="/defined/calculate" id="integral-form">
+    <label for="expression">Expresión:</label>
+    <input type="text" id="expression" name="expression" required>
+
+    <label for="variable">Variable de integración:</label>
+    <input type="text" id="variable" name="variable" value="x" required>
+
+    <label for="lower">Límite inferior:</label>
+    <input type="text" id="lower" name="lower" required>
+
+    <label for="upper">Límite superior:</label>
+    <input type="text" id="upper" name="upper" required>
+
+    <button type="submit">Calcular Integral</button>
+</form>
+
+<h3>Expresión:</h3>
+<div id="render-expression">$$\int_{a}^{b} \_ dx$$</div>
+
+<h3>Resultado:</h3>
+<div id="render-result">
+    {% if result %}
+        $$ {{ result }} $$
+    {% endif %}
+</div>
+{% endblock %}
+
+{% block script %}
+<script src="/static/js/toLatex.js"></script>
+<script src="/static/js/defined.js"></script>
+
+<!-- MathJax -->
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
 {% endblock %}
