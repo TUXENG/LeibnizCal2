@@ -1,6 +1,3 @@
-Aquí tienes un archivo `README.md` completamente generado para tu proyecto **LeibnizCal2**:
-
-````markdown
 # LeibnizCal2
 
 **LeibnizCal2** es una aplicación web desarrollada con **FastAPI** que permite resolver integrales definidas e indefinidas. Su diseño modular, con una interfaz intuitiva basada en HTML, CSS y JavaScript, facilita tanto el uso por parte de los usuarios como su mantenimiento por parte de desarrolladores.
