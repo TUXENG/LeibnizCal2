@@ -1,8 +1,39 @@
 {% extends "base.html" %}
 
-{% block title %}Historial{% endblock %}
+{% block head %}
+    <link rel="stylesheet" href="{{ url_for('static', path='css/history.css') }}">
+{% endblock %}
 
 {% block content %}
-<h1>Historial</h1>
-<p>Aquí aparecerá el historial de operaciones.</p>
+<h1 class="history-title">Historial de Integrales</h1>
+
+<section class="history-section">
+    {% if history %}
+        <ul class="history-list">
+            {% for item in history %}
+                <li class="history-item">
+                    <div class="history-expression">$$\int {{ item.expression }} \, d{{ item.variable }}$$</div>
+                    <div class="history-result">= $$ {{ item.result }} $$</div>
+                    <div class="history-type">{{ item.type }}</div>
+                    <div class="history-date">{{ item.timestamp }}</div>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <div class="history-empty">
+            <div class="history-div__pensando">
+                <img src="{{ url_for('static', path='img/pensando.png' ) }}" alt="¿Ya usaste la calculadora?" class="historial-img__pensando">
+            </div>
+            <p class="history-p__empty">No hay integrales registradas aún.</p>
+        </div>
+    {% endif %}
+</section>
+{% endblock %}
+
+{% block script %}
+<!-- MathJax -->
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
 {% endblock %}

@@ -1,28 +1,41 @@
 {% extends "base.html" %}
 
+{% block head %}
+    <link rel="stylesheet" href="{{ url_for('static', path='css/undefined.css' ) }}">
+{% endblock %}
 
 {% block content %}
-<h1>Calculadora de Integrales Indefinidas</h1>
+<h1 class="undefined-title">Calculadora de Integrales Indefinidas</h1>
+<section class="undefined">
+    <form method="post" action="/undefined/calculate" id="integral-form" class="undefined-form">
+        <label for="expression" class="undefined-label__expr">Expresión:</label>
+        <input type="text" id="expression" name="expression" 
+        class="undefined-input__expr" required value="{{ expression | default('')}}">
 
-<form method="post" action="/undefined/calculate" id="integral-form">
-    <label for="expression">Expresión:</label>
-    <input type="text" id="expression" name="expression" required>
+        <label for="variable" class="undefined-label__var">Variable de integración:</label>
+        <input type="text" id="variable" name="variable" value="{{ variable | default('x') }}" 
+        class="undefined-input__var" required>
 
-    <label for="variable">Variable de integración:</label>
-    <input type="text" id="variable" name="variable" value="x" required>
+        <button type="submit" class="undefined-button__submit">Calcular Integral</button>
+    </form>
+    <div class="undefined__output">
+        <h3 class="undefined-h3__expr">Expresión:</h3>
+        <div id="render-expression" class="undefined-div__expr">
+            {% if exprLatex %}
+                $$\int {{ exprLatex }}\, dx$$
+            {% else %}
+                $$\int f(x) \, dx$$
+            {% endif %}
+        </div>
 
-    <button type="submit">Calcular Integral</button>
-</form>
-
-<h3>Expresión:</h3>
-<div id="render-expression">$$\int \_ dx$$</div>
-
-<h3>Resultado:</h3>
-<div id="render-result">
-    {% if result %}
-        $$ {{ result }} $$
-    {% endif %}
-</div>
+        <h3 class="undefined-h3__result">Resultado:</h3>
+        <div id="render-result" class="undefined-div__expr">
+            {% if result %}
+                $$ {{ result }} $$
+            {% endif %}
+        </div>
+    </div>
+</section>
 {% endblock %}
 
 {% block script %}

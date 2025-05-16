@@ -7,4 +7,7 @@ templates = Jinja2Templates(directory="templates")
 
 @router.get("/", response_class=HTMLResponse)
 async def show_history(request: Request):
-    return templates.TemplateResponse("history.html", {"request": request})
+    return templates.TemplateResponse("history.html", {
+        "request": request,
+        "current_page": "history"
+        })

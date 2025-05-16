@@ -6,10 +6,11 @@
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f5f5f5;
+    background-color: #f4f6f9;
+    margin: 0;
+    padding: 0;
     color: #333;
 }
-
 /* Barra de navegación */
 .navbar {
     background-color: #1f2937;
@@ -53,9 +54,18 @@ body {
         
 }
 
+.nav-links a.active {
+    color: #ffffff;
+    font-weight: 900;
+    border-bottom: 2px solid #ffffff;
+    padding-bottom: 0.2rem;
+}
+
+
 /* Contenido principal */
 .main-content {
     padding: 2rem;
+    text-align: center;
 }
 
 .footer {
@@ -74,75 +84,3 @@ body {
     padding: 0 20px;
 }
 
-
-/* Index */
-.welcome-container {
-    max-width: 800px;
-    margin: 2rem auto;
-    padding: 1rem;
-    text-align: center;
-}
-
-.title {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-}
-
-.leibniz {
-    border-radius: 8px;
-    margin: 1rem 0;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-}
-.leibniz-img {
-    max-width: 250px;
-    width: 100%;
-    height: auto;
-}
-
-.leibniz-name {
-    font-size: 2rem;
-    margin: 0;
-    padding: 0;
-}
-
-.leibniz-history {
-    font-size: 1.1rem;
-    text-align: justify;
-    margin-top: 1.5rem;
-}
-
-.leibniz-p {
-    margin-top: 1.5rem;
-    font-size: medium;
-}
-
-.about {
-    margin-top: 2rem;
-    text-align: center;
-}
-
-.about-toggle {
-    display: none;
-}
-
-.about-button {
-    display: inline-block;
-    padding: 0.6rem 1.2rem;
-    background-color: #444;
-    color: #fff;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.about-content {
-    display: none;
-    margin-top: 1rem;
-    text-align: justify;
-    max-width: 700px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.about-toggle:checked + .about-button + .about-content {
-    display: block;
-}
