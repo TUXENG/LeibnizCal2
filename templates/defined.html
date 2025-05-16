@@ -1,33 +1,40 @@
 {% extends "base.html" %}
 
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', path='css/defined.css')}}">
+{% endblock %}
+
 {% block content %}
-<h1>Calculadora de Integrales Definidas</h1>
+<h1 class="defined-title">Calculadora de Integrales Definidas</h1>
+<section class="defined">
+    <form method="post" action="/defined/calculate" id="integral-form" class="defined-form">
+        <label for="expression" class="defined-label__expr">Expresión:</label>
+        <input type="text" id="expression" name="expression" class="defined-input__expr" required>
 
-<form method="post" action="/defined/calculate" id="integral-form">
-    <label for="expression">Expresión:</label>
-    <input type="text" id="expression" name="expression" required>
+        <label for="variable" class="defined-label__var">Variable de integración:</label>
+        <input type="text" id="variable" name="variable" value="x" class="defined-input__var" required>
 
-    <label for="variable">Variable de integración:</label>
-    <input type="text" id="variable" name="variable" value="x" required>
+        <label for="lower" class="defined-label__lower">Límite inferior:</label>
+        <input type="text" id="lower" name="lower" class="defined-input__lower" required>
 
-    <label for="lower">Límite inferior:</label>
-    <input type="text" id="lower" name="lower" required>
+        <label for="upper" class="defined-label__upper">Límite superior:</label>
+        <input type="text" id="upper" name="upper" class="defined-input__upper" required>
 
-    <label for="upper">Límite superior:</label>
-    <input type="text" id="upper" name="upper" required>
+        <button type="submit" class="defined-button__submit">Calcular Integral</button>
+    </form>
 
-    <button type="submit">Calcular Integral</button>
-</form>
+    <div class="defined__output">
+        <h3 class="defined-h3__expr">Expresión:</h3>
+        <div id="render-expression" class="defined-div__expr">$$\int_{a}^{b} \_ dx$$</div>
 
-<h3>Expresión:</h3>
-<div id="render-expression">$$\int_{a}^{b} \_ dx$$</div>
-
-<h3>Resultado:</h3>
-<div id="render-result">
-    {% if result %}
-        $$ {{ result }} $$
-    {% endif %}
-</div>
+        <h3 class="defined-h3__result">Resultado:</h3>
+        <div id="render-result" class="defined-div__expr">
+            {% if result %}
+                $$ {{ result }} $$
+            {% endif %}
+        </div>
+    </div>
+</section>
 {% endblock %}
 
 {% block script %}

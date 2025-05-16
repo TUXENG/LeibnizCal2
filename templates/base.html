@@ -6,7 +6,7 @@
     <link rel="icon" href="{{ url_for('static', path='img/leibniz.ico') }}">
     <title>{% block title %}LeibnizCal{% endblock %}</title>
     <link rel="stylesheet" href="{{ url_for('static', path='css/styles.css') }}">
-
+    {% block head %}{% endblock %}
 </head>
 
 <body>
@@ -14,10 +14,10 @@
         <div class="navbar-container">
             <a href="/" class="logo">LeibnizCal</a>
             <ul class="nav-links">
-                <li><a href="/">Inicio</a></li> 
-                <li><a href="/defined">Integrales definidas</a> </li>
-                <li><a href="/undefined">Integrales indefinidas</a> </li>
-                <li><a href="/history">Historial</a></li>
+                <li><a href="/" class="{% if current_page == 'index' %}active{% endif %}">Inicio</a></li>
+                <li><a href="/defined" class="{% if current_page == 'defined' %}active{% endif %}">Definidas</a></li>
+                <li><a href="/undefined" class="{% if current_page == 'undefined' %}active{% endif %}">Indefinidas</a></li>
+                <li><a href="/history" class="{% if current_page == 'history' %}active{% endif %}">Historial</a></li>
             </ul>
         </div>
     </nav>

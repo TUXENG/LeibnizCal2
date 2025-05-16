@@ -7,4 +7,7 @@ templates = Jinja2Templates(directory="templates")
 
 @router.get("/", response_class=HTMLResponse)
 async def show_defined(request: Request):
-    return templates.TemplateResponse("defined.html", {"request": request})
+    return templates.TemplateResponse("defined.html", {
+        "request": request,
+        "current_page" : "defined"
+        })

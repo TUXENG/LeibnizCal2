@@ -1,0 +1,104 @@
+/* Estilo general */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f5f7fa;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+/* Título */
+.defined-title {
+    text-align: center;
+    font-size: 2em;
+    margin-top: 1rem;
+    color: #2c3e50;
+}
+
+/* Contenedor general */
+.defined {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+}
+
+/* Formulario */
+.defined-form {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 1rem 1.5rem;
+    background: #ffffff;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    max-width: 600px;
+    width: 100%;
+}
+
+.defined-form label {
+    text-align: right;
+    font-weight: bold;
+}
+
+.defined-form input {
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.defined-button__submit {
+    grid-column: span 2;
+    padding: 0.75rem;
+   background-color: #1f2937; 
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.defined-button__submit:hover {
+    background-color: #2471a3;
+}
+
+/* Resultados */
+.defined__output {
+    margin-top: 2rem;
+    background-color: #fff;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 0 8px rgba(0,0,0,0.03);
+    width: 100%;
+    max-width: 600px;
+}
+
+.defined-h3__expr {
+    margin-bottom: 0.5rem;
+    color: #2c3e50;
+}
+
+.defined-div__expr {
+    font-size: 1.2em;
+    background-color: #ecf0f1;
+    padding: 1rem;
+    border-radius: 6px;
+    text-align: center;
+    min-height: 50px;
+}
+
+/* Responsivo */
+@media (max-width: 600px) {
+    .defined-form {
+        grid-template-columns: 1fr;
+    }
+
+    .defined-form label {
+        text-align: left;
+    }
+
+    .defined-button__submit {
+        width: 100%;
+    }
+}

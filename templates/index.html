@@ -1,5 +1,9 @@
 {% extends "base.html" %}
 
+{% block head %}
+    <link rel="stylesheet" href="{{ url_for('static', path='css/index.css' ) }}">
+{% endblock %}
+
 {% block content %}
 <section class="welcome-container">
     <h1 class="title">Bienvenido a LeibnizCal</h1>
