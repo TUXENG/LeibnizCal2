@@ -29,7 +29,8 @@ def resolve_defined_integral(expression: str, variable: str, lower: str, upper: 
         a = sympify(lower)
         b = sympify(upper)
         result = integrate(expr, (var, a, b))
-        return str(result)
+        resultLatex = latex(result)
+        return resultLatex
     except SympifyError:
         return "Expresión o límites inválidos"
     except Exception:

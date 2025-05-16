@@ -89,9 +89,33 @@
 }
 
 /* Mensaje vacío */
-.history-empty {
+.history-empty{
+    background-color: transparent;
+}
+.history-p__empty {
     text-align: center;
     font-size: 1rem;
     color: #777;
-    margin-top: 2rem;
+    margin: 2rem 2rem;
+    margin-bottom: 2rem;
+}
+
+.history-div__pensando {
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.historial-img__pensando {
+    display: block;
+    margin: 0 auto;
+    max-width: 300px;
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.historial-img__pensando:hover {
+    transform: scale(1.05);
 }

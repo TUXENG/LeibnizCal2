@@ -20,7 +20,12 @@
             {% endfor %}
         </ul>
     {% else %}
-        <p class="history-empty">No hay integrales registradas aún.</p>
+        <div class="history-empty">
+            <div class="history-div__pensando">
+                <img src="{{ url_for('static', path='img/pensando.png' ) }}" alt="¿Ya usaste la calculadora?" class="historial-img__pensando">
+            </div>
+            <p class="history-p__empty">No hay integrales registradas aún.</p>
+        </div>
     {% endif %}
 </section>
 {% endblock %}

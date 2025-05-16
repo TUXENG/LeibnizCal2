@@ -25,7 +25,9 @@ async def calculate_undefined(
    
     # logger.info(f"Expresión: {expression}, Variable: {variable}")
     data = UndefinedIntegralRequest(expression=expression, variable=variable)
+    
     result_data = process_undefined_integral(data)
+    
     return templates.TemplateResponse("undefined.html", {
         "request": request,
         "result": result_data["result"], 

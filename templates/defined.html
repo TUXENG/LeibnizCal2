@@ -9,23 +9,33 @@
 <section class="defined">
     <form method="post" action="/defined/calculate" id="integral-form" class="defined-form">
         <label for="expression" class="defined-label__expr">Expresión:</label>
-        <input type="text" id="expression" name="expression" class="defined-input__expr" required>
+        <input type="text" id="expression" name="expression" 
+        class="defined-input__expr" value="{{ expression | default('') }}" required>
 
         <label for="variable" class="defined-label__var">Variable de integración:</label>
-        <input type="text" id="variable" name="variable" value="x" class="defined-input__var" required>
+        <input type="text" id="variable" name="variable" value="x" 
+        class="defined-input__var" value="{{ variable | default('x') }}" required>
 
         <label for="lower" class="defined-label__lower">Límite inferior:</label>
-        <input type="text" id="lower" name="lower" class="defined-input__lower" required>
+        <input type="text" id="lower" name="lower" 
+        class="defined-input__lower" value="{{ lower | default('a') }}" required>
 
         <label for="upper" class="defined-label__upper">Límite superior:</label>
-        <input type="text" id="upper" name="upper" class="defined-input__upper" required>
+        <input type="text" id="upper" name="upper" 
+        class="defined-input__upper" value="{{ upper | default('b') }}" required>
 
         <button type="submit" class="defined-button__submit">Calcular Integral</button>
     </form>
 
     <div class="defined__output">
         <h3 class="defined-h3__expr">Expresión:</h3>
-        <div id="render-expression" class="defined-div__expr">$$\int_{a}^{b} \_ dx$$</div>
+        <div id="render-expression" class="defined-div__expr">
+             {% if exprLatex and lower and upper %}
+                $$\int_{ {{ lower }} }^{ {{ upper }} } {{ exprLatex}} \, d{{ variable }}$$
+            {% else %}
+                $$\int_a^b f(x) \, dx$$
+            {% endif %}
+        </div>
 
         <h3 class="defined-h3__result">Resultado:</h3>
         <div id="render-result" class="defined-div__expr">
