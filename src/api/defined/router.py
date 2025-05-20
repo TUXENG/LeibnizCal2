@@ -36,12 +36,15 @@ async def calculate_defined(
     result_data = process_defined_integral(data)
 
     return templates.TemplateResponse("defined.html", {
-        "request": request,
-        "result": result_data["result"], 
+        "request": request, 
         "expression": expression,
-        "variable": variable,
-        "lower":lower,
-        "upper": upper,
         "exprLatex": result_data["exprLatex"],
+        "varibale": variable,
+        "varLatex": result_data["varLatex"],
+        "lower": lower, 
+        "lowerLatex":result_data["lowerLatex"],
+        "upper": upper,
+        "upperLatex": result_data["upperLatex"],
+        "result": result_data["result"],
         "current_page": "defined"
     })

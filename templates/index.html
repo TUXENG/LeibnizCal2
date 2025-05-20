@@ -40,11 +40,41 @@
         <input type="checkbox" id="about-toggle" class="about-toggle">
         <label for="about-toggle" class="about-button">Sobre LeibnizCal</label>
         <div class="about-content">
-            <p>
-                LeibnizCal es una aplicación para resolver integrales definidas e indefinidas de manera sencilla,
-                paso a paso. Usa el menú superior para seleccionar el tipo de cálculo que deseas realizar y consulta
-                el historial para revisar tus resultados anteriores.
-            </p>
+            <section class="about-leibnizcal">
+                <h2>Recomendaciones para usar la calculadora de integrales</h2>
+
+                <h3>Integrales indefinidas</h3>
+                <ul>
+                    <li>Escribe la expresión a integrar usando notación matemática estándar (por ejemplo: <code>sin(x)</code>, <code>x**2</code>, <code>e**x</code>, <code>ln(x)</code>).</li>
+                    <li>Ingresa correctamente la <strong>variable de integración</strong> (por ejemplo: <code>x</code>, <code>t</code>, <code>u</code>), que debe coincidir con la variable en la expresión.</li>
+                    <li>Usa paréntesis para definir el orden de las operaciones. Ejemplo correcto: <code>sin(x**2)</code>. Evita ambigüedades.</li>
+                    <li>Evita espacios innecesarios dentro de la expresión.</li>
+                </ul>
+
+                <h3>Integrales definidas</h3>
+                <ul>
+                    <li>Además de lo anterior, ingresa los <strong>límites inferior y superior</strong> de integración.</li>
+                    <li>Puedes usar valores numéricos (como <code>0</code>, <code>pi</code>, <code>1.5</code>, <code>e</code>) o constantes simbólicas.</li>
+                    <li>Para integrales impropias, utiliza <code>oo</code> para ∞ y <code>-oo</code> para −∞.</li>
+                </ul>
+
+                <h3>Consejos generales</h3>
+                <ul>
+                    <li>La calculadora está basada en <em>SymPy</em>, por lo que admite expresiones simbólicas compatibles con Python.</li>
+                    <li>Revisa la vista previa en LaTeX antes de calcular para asegurarte de que la expresión se interpreta correctamente.</li>
+                    <li>Si recibes un error, revisa la sintaxis y corrige posibles errores tipográficos.</li>
+                </ul>
+
+                <h2>Limitaciones actuales</h2>
+                <ul>
+                    <li>No soporta integrales con funciones definidas por el usuario ni funciones especiales muy complejas.</li>
+                    <li>Puede no resolver integrales que requieran métodos numéricos avanzados o integración simbólica fuera del alcance de SymPy.</li>
+                    <li>La notación debe ser compatible con Python/SymPy, no acepta formatos alternativos como MathML o notación puramente matemática.</li>
+                    <li>No se manejan integrales múltiples ni integrales en espacios vectoriales aún.</li>
+                    <li>La precisión en resultados numéricos depende del motor simbólico y puede variar.</li>
+                </ul>
+                </section>
+
         </div>
     </div>
 </section>

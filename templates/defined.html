@@ -10,7 +10,7 @@
     <form method="post" action="/defined/calculate" id="integral-form" class="defined-form">
         <label for="expression" class="defined-label__expr">Expresión:</label>
         <input type="text" id="expression" name="expression" 
-        class="defined-input__expr" value="{{ expression | default('') }}" required>
+        class="defined-input__expr" value="{{ expression | default('x') }}" required>
 
         <label for="variable" class="defined-label__var">Variable de integración:</label>
         <input type="text" id="variable" name="variable" value="x" 
@@ -18,7 +18,7 @@
 
         <label for="lower" class="defined-label__lower">Límite inferior:</label>
         <input type="text" id="lower" name="lower" 
-        class="defined-input__lower" value="{{ lower | default('a') }}" required>
+        class="defined-input__lower" value="{{ lower| default('a') }}" required>
 
         <label for="upper" class="defined-label__upper">Límite superior:</label>
         <input type="text" id="upper" name="upper" 
@@ -27,22 +27,31 @@
         <button type="submit" class="defined-button__submit">Calcular Integral</button>
     </form>
 
-    <div class="defined__output">
+    <div class="defined__output"> <!--Expresión renderizada en latex-->
         <h3 class="defined-h3__expr">Expresión:</h3>
         <div id="render-expression" class="defined-div__expr">
-             {% if exprLatex and lower and upper %}
-                $$\int_{ {{ lower }} }^{ {{ upper }} } {{ exprLatex}} \, d{{ variable }}$$
+             {% if exprLatex and lowerLatex and upperLatex and varLatex %}
+                $$\int_{ {{ lowerLatex }} }^{ {{ upperLatex }} } {{ exprLatex}} \, d{{ varLatex }}$$
             {% else %}
                 $$\int_a^b f(x) \, dx$$
             {% endif %}
         </div>
 
         <h3 class="defined-h3__result">Resultado:</h3>
-        <div id="render-result" class="defined-div__expr">
+        <div 
+            id="render-result" 
+            class="defined-div__expr"
+            data-expression="{{ exprLatex }}"
+            data-variable="{{ varLatex}}"
+            data-lower="{{ lowerLatex }}"
+            data-upper="{{ upperLatex }}"
+            data-result="{{ result }}"
+        >
             {% if result %}
                 $$ {{ result }} $$
             {% endif %}
         </div>
+        <button id="save-result" class="defined-button__save">Guardar Respuesta</button>
     </div>
 </section>
 {% endblock %}
@@ -52,7 +61,7 @@
 <script src="/static/js/defined.js"></script>
 
 <!-- MathJax -->
-<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<!--<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>-->
 <script id="MathJax-script" async
     src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
 </script>

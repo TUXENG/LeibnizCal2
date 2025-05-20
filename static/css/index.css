@@ -70,3 +70,56 @@
 .about-toggle:checked + .about-button + .about-content {
     display: block;
 }
+
+/* Styles para el bloque about-leibnizcal */
+
+.about-leibnizcal {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 1.5rem 2rem;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 0 8px rgba(0,0,0,0.1);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+}
+
+.about-leibnizcal h2 {
+  font-size: 1.8rem;
+  color: #0056b3;
+  margin-bottom: 1rem;
+  border-bottom: 2px solid #0056b3;
+  padding-bottom: 0.3rem;
+}
+
+.about-leibnizcal h3 {
+  font-size: 1.3rem;
+  margin-top: 1.5rem;
+  margin-bottom: 0.8rem;
+  color: #004080;
+}
+
+.about-leibnizcal ul {
+  list-style-type: disc;
+  padding-left: 1.5rem;
+  margin-bottom: 1rem;
+  line-height: 1.5;
+}
+
+.about-leibnizcal ul li {
+  margin-bottom: 0.5rem;
+}
+
+.about-leibnizcal code {
+  background-color: #e1e1e1;
+  padding: 0.15rem 0.4rem;
+  border-radius: 4px;
+  font-family: monospace;
+  font-size: 0.95rem;
+  color: #d6336c;
+}
+
+.about-leibnizcal em {
+  font-style: italic;
+  color: #555;
+}

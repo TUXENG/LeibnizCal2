@@ -10,7 +10,7 @@
     <form method="post" action="/undefined/calculate" id="integral-form" class="undefined-form">
         <label for="expression" class="undefined-label__expr">Expresión:</label>
         <input type="text" id="expression" name="expression" 
-        class="undefined-input__expr" required value="{{ expression | default('')}}">
+        class="undefined-input__expr" required value="{{ expression | default('x')}}">
 
         <label for="variable" class="undefined-label__var">Variable de integración:</label>
         <input type="text" id="variable" name="variable" value="{{ variable | default('x') }}" 
@@ -21,19 +21,29 @@
     <div class="undefined__output">
         <h3 class="undefined-h3__expr">Expresión:</h3>
         <div id="render-expression" class="undefined-div__expr">
-            {% if exprLatex %}
-                $$\int {{ exprLatex }}\, dx$$
+            {% if exprLatex and varLatex%}
+                $$\int {{ exprLatex }}\, d {{ varLatex }}$$
             {% else %}
                 $$\int f(x) \, dx$$
             {% endif %}
         </div>
 
         <h3 class="undefined-h3__result">Resultado:</h3>
-        <div id="render-result" class="undefined-div__expr">
+        <div 
+            id="render-result" 
+            class="undefined-div__expr"
+            data-expression = "{{exprLatex }}"
+            data-variable = "{{ varLatex }}"
+            data-lower = "N/A"
+            data-upper = "N/A"
+            data-result = "{{ result }}"
+        >
             {% if result %}
                 $$ {{ result }} $$
+                
             {% endif %}
         </div>
+        <button id="save-result" type="submit" class="undefined-button__save">Guardar Respuesta</button>
     </div>
 </section>
 {% endblock %}
@@ -43,7 +53,7 @@
 <script src="/static/js/undefined.js"></script>
 
 <!-- MathJax -->
-<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<!--<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>-->
 <script id="MathJax-script" async
     src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
 </script>
