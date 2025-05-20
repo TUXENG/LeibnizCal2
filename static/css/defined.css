@@ -1,11 +1,4 @@
 /* Estilo general */
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f5f7fa;
-    margin: 0;
-    padding: 0;
-    color: #333;
-}
 
 /* Título */
 .defined-title {
@@ -86,7 +79,15 @@ body {
     border-radius: 6px;
     text-align: center;
     min-height: 50px;
+
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    white-space: pre-wrap;
+    overflow-x: auto;
+    max-width: 100%;
+    box-sizing: border-box;
 }
+
 
 /* Responsivo */
 @media (max-width: 600px) {

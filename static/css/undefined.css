@@ -73,14 +73,20 @@
     color: #2c3e50;
 }
 
-.undefined-div__expr,
-.undefined-div__result {
-    font-size: 1.2em;
+.undefined-div__expr {
+     font-size: 1.2em;
     background-color: #ecf0f1;
     padding: 1rem;
     border-radius: 6px;
     text-align: center;
     min-height: 50px;
+
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    white-space: pre-wrap;
+    overflow-x: auto;
+    max-width: 100%;
+    box-sizing: border-box;
 }
 
 /* Responsivo */
