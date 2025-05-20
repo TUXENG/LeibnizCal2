@@ -43,7 +43,7 @@
 .defined-button__submit {
     grid-column: span 2;
     padding: 0.75rem;
-   background-color: #1f2937; 
+    background-color: #1f2937; 
     color: white;
     border: none;
     border-radius: 6px;
@@ -79,6 +79,7 @@
     border-radius: 6px;
     text-align: center;
     min-height: 50px;
+    margin-bottom: 1rem;
 
     word-wrap: break-word;
     overflow-wrap: break-word;
@@ -88,6 +89,21 @@
     box-sizing: border-box;
 }
 
+.defined-button__save {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: #1f2937; 
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.defined-button__save:hover {
+    background-color: #2980b9; 
+}
 
 /* Responsivo */
 @media (max-width: 600px) {
