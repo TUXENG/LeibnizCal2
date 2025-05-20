@@ -29,11 +29,21 @@
         </div>
 
         <h3 class="undefined-h3__result">Resultado:</h3>
-        <div id="render-result" class="undefined-div__expr">
+        <div 
+            id="render-result" 
+            class="undefined-div__expr"
+            data-expression = "{{exprLatex }}"
+            data-variable = "{{ varLatex }}"
+            data-lower = "N/A"
+            data-upper = "N/A"
+            data-result = "{{ result }}"
+        >
             {% if result %}
                 $$ {{ result }} $$
+                
             {% endif %}
         </div>
+        <button id="save-result" type="submit" class="undefined-button__save">Guardar Respuesta</button>
     </div>
 </section>
 {% endblock %}

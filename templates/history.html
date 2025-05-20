@@ -8,17 +8,34 @@
 <h1 class="history-title">Historial de Integrales</h1>
 
 <section class="history-section">
-    {% if history %}
-        <ul class="history-list">
-            {% for item in history %}
-                <li class="history-item">
-                    <div class="history-expression">$$\int {{ item.expression }} \, d{{ item.variable }}$$</div>
-                    <div class="history-result">= $$ {{ item.result }} $$</div>
-                    <div class="history-type">{{ item.type }}</div>
-                    <div class="history-date">{{ item.timestamp }}</div>
-                </li>
-            {% endfor %}
-        </ul>
+    {% if histories %}
+        <table class="history-table">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Expresión</th>
+                    <th>Variable</th>
+                    <th>Límite inferior</th>
+                    <th>Límite superior</th>
+                    <th>Resultado</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in histories %}
+                <tr id="row-{{ item.id }}">
+                    <td>{{ loop.index }}</td>
+                    <td>$$\int {{ item.expression }} \, d{{ item.variable }}$$</td>
+                    <td>$${{ item.variable }}$$</td>
+                    <td>$${{ item.lower_limit or "-" }}$$</td>
+                    <td>$${{ item.upper_limit or "-" }}$$</td>
+                    <td>$$ {{ item.result }} $$</td>
+                    <td>
+                        <button class="delete-btn" data-id="{{ item.id }}">Eliminar</button>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
     {% else %}
         <div class="history-empty">
             <div class="history-div__pensando">
@@ -32,6 +49,8 @@
 
 {% block script %}
 <!-- MathJax -->
+ <script src="{{ url_for('static', path='js/history.js') }}"></script>
+
 <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 <script id="MathJax-script" async
     src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">

@@ -89,6 +89,9 @@
     box-sizing: border-box;
 }
 
+.undefined-button__save {
+    margin-inline: 0.5rem;
+}
 /* Responsivo */
 @media (max-width: 600px) {
     .undefined-form {
