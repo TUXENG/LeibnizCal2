@@ -10,7 +10,7 @@
     <form method="post" action="/undefined/calculate" id="integral-form" class="undefined-form">
         <label for="expression" class="undefined-label__expr">Expresión:</label>
         <input type="text" id="expression" name="expression" 
-        class="undefined-input__expr" required value="{{ expression | default('')}}">
+        class="undefined-input__expr" required value="{{ expression | default('x')}}">
 
         <label for="variable" class="undefined-label__var">Variable de integración:</label>
         <input type="text" id="variable" name="variable" value="{{ variable | default('x') }}" 
@@ -21,8 +21,8 @@
     <div class="undefined__output">
         <h3 class="undefined-h3__expr">Expresión:</h3>
         <div id="render-expression" class="undefined-div__expr">
-            {% if exprLatex %}
-                $$\int {{ exprLatex }}\, dx$$
+            {% if exprLatex and varLatex%}
+                $$\int {{ exprLatex }}\, d {{ varLatex }}$$
             {% else %}
                 $$\int f(x) \, dx$$
             {% endif %}

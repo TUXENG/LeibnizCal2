@@ -10,7 +10,8 @@ document.addEventListener("DOMContentLoaded", () => {
         if (!expr.trim()) return;
 
         const latexExpr = await toLatex(expr);
-        renderDiv.innerHTML = `$$\\int ${latexExpr} \\, d${variable}$$`;
+        const varLatex = await toLatex(variable);
+        renderDiv.innerHTML = `$$\\int ${latexExpr} \\, d${varLatex}$$`;
 
         if (window.MathJax) {
             MathJax.typesetPromise([renderDiv]);

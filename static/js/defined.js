@@ -12,9 +12,17 @@ document.addEventListener("DOMContentLoaded", () => {
         const upper = upperInput.value || "b";
 
         if (!expr.trim()) return;
+        if (!variable.trim()) return;
+        if (!lower.trim()) return;
+        if (!upper.trim()) return;
+
 
         const latexExpr = await toLatex(expr);
-        renderDiv.innerHTML = `$$\\int_{${lower}}^{${upper}} ${latexExpr} \\, d${variable}$$`;
+        const latexVar = await toLatex(variable);
+        const latexLower = await toLatex(lower);
+        const latexUpper = await toLatex(upper);
+
+        renderDiv.innerHTML = `$$\\int_{${latexLower}}^{${latexUpper}} ${latexExpr} \\, d${latexVar}$$`;
         
         if (window.MathJax) {
                 MathJax.typesetPromise([renderDiv]);

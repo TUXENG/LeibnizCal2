@@ -32,8 +32,9 @@ async def calculate_undefined(
         "request": request,
         "result": result_data["result"], 
         "expression": expression,
-        "variable": variable,
         "exprLatex": result_data["exprLatex"],
+        "variable": variable,
+        "varLatex": result_data["varLatex"],
         "current_page": "undefined"
     })
 
