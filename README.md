@@ -17,7 +17,7 @@
 ### 1. Clona el repositorio
 
 ```bash
-git clone https://github.com/TUXENG/LeibnizCal2.git
+git clone https://github.com/---/LeibnizCal2.git
 cd LeibnizCal2
 ```
 
@@ -185,7 +185,7 @@ LeibnizCal2/
 
 MIT License
 
-Copyright (c) 2025 TUXENG
+Copyright (c) 2025 ---
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
